@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buskémon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Paytone+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="img/8279.jpg" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body ondragstart='return false'>
+    <div id="titulo">
+        <img src="img/8279.jpg" alt="pokebola" style="height: 120px;">
+        <h1>Buskémon</h1>
+        <img src="img/8279.jpg" alt="pokebola" style="height: 120px;">
+    </div>
+    <form>
+        <div class="container">
+            <input type="text" class="class__categoria" id="input__pokemon" placeholder="Insira o nome do Pokémon" />
+
+            <button id="btn__buscar" class="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro">
+            Buscar
+            </button>
+        </div>
+    </form>
+    <table class="table" id="tabela-lista">
+        <thead >
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Habilidades</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Height</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+
+
+    <script>
+        var objJson = [];
+
+        const URL = 'https://pokeapi.co/api/v2/pokemon/ditto/'
+
+        fetch(URL)
+            .then(resposta => resposta.json())
+            .then(data => preencherDados(data))
+            .catch(erro => console.error(erro));
+        console.log(objJson);
+
+        const tabela = document.getElementById("tabela-lista")
+
+        var listing_table = document.getElementById("tabela-lista-corpo");
+
+
+        function preencherDados(lista) {
+            console.log(lista);
+            const tr = document.createElement('tr');
+                const td_Id = document.createElement('td');
+                const td_Habilidade = document.createElement('td');
+                const td_Imagem = document.createElement('td');
+                const td_Weight = document.createElement('td');
+                const td_Height = document.createElement('td');
+                
+                td_Id.textContent = lista.id;
+                lista.abilities.forEach(data => {
+                        td_Habilidade.innerHTML += "<p>" + data.ability.name + "</p>";
+                        tr.appendChild(td_Habilidade);
+                    }) 
+                td_Imagem.innerHTML = "<img style='width: 60px;' src='" + lista.sprites.front_default + "'>";
+                td_Weight.textContent = lista.weight;
+                td_Height.textContent = lista.height;
+
+                tabela.appendChild(tr);
+                tr.appendChild(td_Id);
+                tr.appendChild(td_Habilidade);
+                tr.appendChild(td_Imagem);
+                tr.appendChild(td_Weight);
+                tr.appendChild(td_Height);
+        }
+    </script>
+</body>
+</html>
