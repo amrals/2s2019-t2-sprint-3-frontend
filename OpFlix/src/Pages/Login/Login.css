@@ -1,0 +1,55 @@
+.logo{
+    margin: 10px 0px 5px 30px;
+    height: 50px;
+}
+.divona{
+    background-image: url("../../img/mao.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+#box_login{
+    height: 30vh;
+    width: 40%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    left: 29%;
+    top: 10%;
+    padding-top: 5vh;
+}
+#box_login > h2{
+    text-align: center;
+    color: #EB4A5F;
+}
+#box_login > form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 0vh 0vh 0vh;
+}
+#box_login > form > input{
+    height: 3.5vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    box-sizing: border-box;
+    border: none;
+    margin: 2%;
+    width: 50%;
+}
+#submit_login{
+    background-color: #2A3A3B;
+    color: #EB4A5F;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.5em
+}
+#cadastro_login{
+    text-align: center;
+    font-size: 1.5em;
+}
