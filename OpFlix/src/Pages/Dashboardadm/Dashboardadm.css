@@ -1,0 +1,31 @@
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#p_adm{
+    margin-right: 5%;
+    font-weight: bold;
+}
+p{
+    font-size: 1.5em;
+}
+#guias{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    margin-top: 20vh;
+}
+#guias > button{
+    font-size: 1.7em;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #EB4A5F;
+    border-width: 3px;
+    background-color: white;
+    cursor: pointer;
+}
+#divinha{
+    height: 93vh;
+}
