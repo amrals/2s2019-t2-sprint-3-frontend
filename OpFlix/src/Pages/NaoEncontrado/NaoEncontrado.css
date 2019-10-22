@@ -1,0 +1,12 @@
+#divinha_404{
+    height: 93vh;
+    
+}
+#content_404{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+#content_404 > p{
+    font-size: 1.5em;
+}
