@@ -29,9 +29,9 @@ class Dashboardadm extends Component{
                     <p>Seja bem vindo(a) {parseJwt().Nome}</p>
                     <p>Aqui estão seus guias de acesso</p>
                     <div id='guias'>
-                        <button>Categorias</button>
-                        <button>Lançamentos</button>
-                        <button>Usuários</button>
+                        <Link to='/categorias' className='guias_botoes'>Categorias</Link>
+                        <Link to='/lancamentosadm' className='guias_botoes'>Lançamentos</Link>
+                        <Link to='/usuarios' className='guias_botoes'>Usuários</Link>
                     </div>
                 </div>
                 <div id='rodape'>

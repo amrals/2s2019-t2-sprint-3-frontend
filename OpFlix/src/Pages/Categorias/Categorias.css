@@ -1,5 +1,5 @@
 #divinha_lancamentosadm{
-    height: 120vh;
+    height:  auto;
 }
 #header_lancamentosadm{
     display: flex;
@@ -9,4 +9,37 @@
 }
 #divinha_lancamentosadm > p{
     font-size: 1.5em;
+}
+.container{
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+#input__categoria{
+    margin: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: solid;
+}
+#input__categoria ::placeholder{
+    text-align: center;
+}
+#btn__cadastrar{
+    margin: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #EB4A5F;
+    border-width: 3px;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+#conteudoPrincipal-cadastro{
+    margin-top: 10vh
+}
+#table_form{
+    display: flex;
+    flex-direction: column;
 }

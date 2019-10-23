@@ -8,6 +8,9 @@
 h3{
   color: #EB4A5F;
 }
+h2{
+  font-size: 1.5em;
+}
 a{ 
   color: inherit;
   text-decoration: none;
@@ -36,7 +39,7 @@ ul{
   flex-wrap: wrap;
 }
 li{
-  margin: 15px 10px 5px 10px;
+  /* margin: 15px 10px 5px 10px; */
 }
 .banner{
   /* background: burlywood; */
@@ -88,6 +91,9 @@ li{
 }
 #div_funcionalidades_flex > ul > li > p{
   color: white;
+}
+#div_funcionalidades_flex > ul > li > h3{
+  font-size: 1.2em;
 }
 #div_funcionalidades_flex{
   display: flex;

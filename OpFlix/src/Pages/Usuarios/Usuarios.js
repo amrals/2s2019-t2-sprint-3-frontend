@@ -32,7 +32,7 @@ class Usuarios extends Component{
 
     render(){
         return(
-            <div id='divona_lancamentosadm'>
+            <div id='divona_usuarios'>
                 <div id='divinha_lancamentosadm'>
                     <div id='header_lancamentosadm'>
                         <Link to="/dashboard"><img src={logo} alt="" className="logo"/></Link>

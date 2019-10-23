@@ -24,6 +24,9 @@ class Dashboardcomum extends Component{
                     </div>
                         <p>Seja bem vindo(a) {parseJwt().Nome}</p>
                         <p>Aqui estão os lançamentos!</p>
+                    <div id='guias'>
+                        <Link to='/lancamentoscomum' className='guias_botoes'>Lançamentos</Link>
+                    </div>
                 </div>
                 <Rodape/>
             </div>
