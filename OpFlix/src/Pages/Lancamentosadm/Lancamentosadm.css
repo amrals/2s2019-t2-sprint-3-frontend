@@ -10,3 +10,29 @@
 #divinha_lancamentosadm > p{
     font-size: 1.5em;
 }
+input{
+    margin: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: solid;
+}
+select{
+    margin: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: black;
+}
+#btn_lancamentos{
+    margin: 2em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #EB4A5F;
+    border-width: 3px;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}

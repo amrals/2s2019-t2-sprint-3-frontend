@@ -33,12 +33,12 @@ class Usuarios extends Component{
     render(){
         return(
             <div id='divona_usuarios'>
-                <div id='divinha_lancamentosadm'>
+                <div id='divinha_usuariosadm'>
                     <div id='header_lancamentosadm'>
                         <Link to="/dashboard"><img src={logo} alt="" className="logo"/></Link>
                         <p id='p_adm'>Administrador - {parseJwt().Nome}</p>
                     </div>
-                    <p>Usuários</p>
+                    <p id='user_title'>Usuários</p>
                     <table class="table">
                         <thead>
                             <tr>
@@ -63,6 +63,14 @@ class Usuarios extends Component{
                             })}
                         </tbody>
                     </table>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
                 <Rodape/>
             </div>

@@ -196,7 +196,7 @@ class Lancamentosadm extends Component {
                                 )
                             })}
                         </select>
-                        <button onClick={this.adicionarItem}>Cadastrar</button>
+                        <button onClick={this.adicionarItem} id='btn_lancamentos'>Cadastrar</button>
                     </form>
                 </div>
                 <Rodape />
