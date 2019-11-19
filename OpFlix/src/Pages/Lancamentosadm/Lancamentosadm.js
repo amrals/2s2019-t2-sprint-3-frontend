@@ -30,7 +30,7 @@ class Lancamentosadm extends Component {
     }
 
     componentDidMount() {
-        Axios.get('http://localhost:5000/api/categorias', {
+        Axios.get('http://192.168.4.26:5000/api/categorias', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -41,7 +41,7 @@ class Lancamentosadm extends Component {
             .catch(erro => {
                 console.log(erro);
             });
-        Axios.get('http://localhost:5000/api/plataformas', {
+        Axios.get('http://192.168.4.26:5000/api/plataformas', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -56,7 +56,7 @@ class Lancamentosadm extends Component {
     }
 
     exibirLista = () => {
-        Axios.get('http://localhost:5000/api/midias', {
+        Axios.get('http://192.168.4.26:5000/api/midias', {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
             }
@@ -72,7 +72,7 @@ class Lancamentosadm extends Component {
     adicionarItem = (event) => {
         event.preventDefault();
         console.log('state', this.state);
-        Axios.post('http://localhost:5000/api/midias', {
+        Axios.post('http://192.168.4.26:5000/api/midias', {
             Nome: this.state.nomeMidia,
             Sinopse: this.state.sinopse,
             Duracao: this.state.tempoDuracao,

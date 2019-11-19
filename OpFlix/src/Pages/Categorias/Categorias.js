@@ -21,7 +21,7 @@ class Categorias extends Component{
     }
 
     listaAtualizada = () =>{
-        Axios.get('http://localhost:5000/api/categorias',{
+        Axios.get('http://192.168.4.26:5000/api/categorias',{
             headers: {
                 Authorization: 'Bearer '+localStorage.getItem('usuario-opflix')
             }
@@ -38,7 +38,7 @@ class Categorias extends Component{
     adicionaItem = (event) => {
         event.preventDefault();
         console.log(this.state.nome);
-        fetch('http://localhost:5000/api/categorias',{
+        fetch('http://192.168.4.26:5000/api/categorias',{
             method: "POST",
             body: JSON.stringify({ nome: this.state.nome }),
             headers: {

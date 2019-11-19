@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import logo from    '../../img/logo.png';
 import {Link} from 'react-router-dom';
 import './Cadastro.css';
+import Axios from 'axios';
 
 class Cadastro extends Component{
 
@@ -19,43 +20,39 @@ class Cadastro extends Component{
         };
     }
 
-    componentDidMount(){
-       this.listaAtualizada();
+
+    atualizaEstadoEmail = (event) => {
+        this.setState({ email: event.target.value });
     }
 
-    listaAtualizada = () =>{
-        fetch('http://localhost:5000/api/categorias')
-            .then(response => response.json())
-            .then(data => this.setState({ lista: data}));
+    atualizaEstadoSenha = (event) => {
+        this.setState({ senha: event.target.value });
     }
 
-    adicionaItem = (event) => {
+    atualizaEstadoNome = (event) => {
+        this.setState({ nome: event.target.value });
+    }
+
+    efetuarCadastro = (event) => {
         event.preventDefault();
-        console.log(this.state.nome);
-        fetch('http://localhost:5000/api/categorias',{
-            method: "POST",
-            body: JSON.stringify({ nome: this.state.nome , email: this.state.email , senha: this.state.senha}),
-            headers: {
-                "Content-Type": "application/json"
-            }
+
+        Axios.post("http://192.168.4.26:5000/api/usuarios/cadastrocomum", {
+            email: this.state.email,
+            nome: this.state.nome,
+            senha: this.state.senha
         })
-        .then(this.listaAtualizada())
-        .catch(error => console.log(error))
-        
-    }
-
-    adicionaCategoria = () =>{
-        let valores_lista = this.state.lista;
-        let categoria = {nome: this.state.nome}
-
-        valores_lista.push(categoria);
-
-        this.setState({lista: valores_lista});
-    }
-
-    atualizarNome = (event) =>{
-        this.setState({nome: event.target.value})
-        console.log(this.state);
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("ok");
+                    this.props.history.push('/Login');
+                } else {
+                    console.log('vish deu ruim');
+                }
+            })
+            .catch(erro => {
+                this.setState({ erro: "E-mail ou senha inválidos" });
+                console.log(erro);
+            });
     }
 
     render(){
@@ -65,11 +62,11 @@ class Cadastro extends Component{
                 <div id="box_login">
                     <h2>Cadastro</h2>
                     <form>
-                        <input type='text' placeholder='Nome' value={this.state.nome}
-                            onInput={this.atualizarNome}></input>
-                        <input type='text' placeholder='Email' value={this.state.email}></input>
-                        <input type='password' placeholder='Senha' value={this.state.senha}></input>
-                        <input type="submit" name="" value="Cadastrar-se" id="submit_login" onClick={this.adicionaItem}/>
+                        <input type='text' placeholder='Nome' onInput={this.atualizaEstadoNome}></input>
+                        <input type='text' placeholder='Email' onInput={this.atualizaEstadoEmail}></input>
+                        <input type='password' placeholder='Senha' onInput={this.atualizaEstadoSenha}></input>
+                        <br></br>
+                        <input type="submit" name="" value="Cadastrar-se" id="submit_login" onClick={this.efetuarCadastro}/>
                     </form>
                 </div>
             </div>

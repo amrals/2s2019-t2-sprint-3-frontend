@@ -16,7 +16,7 @@ class Lancamentosadm extends Component{
     }
 
     componentDidMount(){
-        Axios.get('http://localhost:5000/api/midias',{
+        Axios.get('http://192.168.4.26:5000/api/midias',{
             headers: {
                 Authorization: 'Bearer '+localStorage.getItem('usuario-opflix')
             }

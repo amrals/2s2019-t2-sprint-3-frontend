@@ -16,7 +16,7 @@ class Usuarios extends Component{
     }
 
     componentDidMount(){
-        Axios.get('http://localhost:5000/api/usuarios',{
+        Axios.get('http://192.168.4.26:5000/api/usuarios',{
             headers: {
                 Authorization: 'Bearer '+localStorage.getItem('usuario-opflix')
             }
