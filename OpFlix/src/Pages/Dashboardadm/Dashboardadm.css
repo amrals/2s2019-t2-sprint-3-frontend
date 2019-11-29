@@ -37,8 +37,21 @@
     color: black;
 }
 #divinha{
-    height: 93vh;
+    height: 75vh;
 }
 .link_dash_adm_p{
     color: black;
+}
+.sairadm{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    align-self: center;
+    margin-left: 48%;
+}
+.sairtudao{
+    display: flex;
+}
+.rodapeadm{
+    margin-top: 6.5%;
 }

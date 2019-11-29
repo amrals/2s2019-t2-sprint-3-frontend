@@ -24,3 +24,13 @@
     cursor: pointer;
     color: black;
 }
+.sair{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    align-self: center;
+    margin-left: 48%;
+}
+.sairtudao{
+    display: flex;
+}

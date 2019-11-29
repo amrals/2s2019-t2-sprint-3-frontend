@@ -14,6 +14,10 @@ class Dashboardcomum extends Component{
         }
     }
 
+    _delogar = async() => {
+        localStorage.clear();
+    }
+
     render(){
         return(
             <div id='divona'>
@@ -26,6 +30,18 @@ class Dashboardcomum extends Component{
                         <p>Aqui estão os lançamentos!</p>
                     <div id='guias'>
                         <Link to='/lancamentoscomum' className='guias_botoes'>Lançamentos</Link>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className='sair_tudao'>
+                        <Link to='/' onClick={this._delogar} className='sair'>Sair</Link>
                     </div>
                 </div>
                 <Rodape/>

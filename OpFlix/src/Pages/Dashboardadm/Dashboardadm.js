@@ -14,9 +14,9 @@ class Dashboardadm extends Component{
         }
     }
 
-    // componentDidMount(){
-    //     this.setState({permissao: parseJwt().Permissao})
-    // }
+    _delogar = async() => {
+        localStorage.clear();
+    }
 
     render(){
         return(
@@ -34,8 +34,9 @@ class Dashboardadm extends Component{
                         <Link to='/usuarios' className='guias_botoes'>Usuários</Link>
                     </div>
                 </div>
-                <div id='rodape'>
-                <Rodape/>
+                <Link to='/' onClick={this._delogar} className='sairadm'>Sair</Link>
+                <div id='rodape' className='rodapeadm'>
+                    <Rodape/>
                 </div>
             </div>
         )
