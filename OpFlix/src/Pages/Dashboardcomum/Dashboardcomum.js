@@ -39,11 +39,16 @@ class Dashboardcomum extends Component{
                     <br></br>
                     <br></br>
                     <br></br>
-                    <br></br>
                     <div className='sair_tudao'>
                         <Link to='/' onClick={this._delogar} className='sair'>Sair</Link>
                     </div>
                 </div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <Rodape/>
             </div>
         )

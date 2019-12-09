@@ -11,7 +11,12 @@ class Usuarios extends Component{
     constructor(){
         super();
         this.state = {
-            lista: []
+            lista: [],
+            nomeUsuario: "",
+            emailUsuario: "",
+            senhaUsuario: "",
+            tipoUsuario: "",
+            tipoUsuarioSelecionado: "",
         };
     }
 
@@ -29,6 +34,61 @@ class Usuarios extends Component{
                 console.log(erro);
             });
         }
+    
+        atualizarNomeUsuario = (event) => {
+            this.setState({ nomeUsuario: event.target.value })
+            console.log(this.state);
+        }
+        atualizarEmailUsuario = (event) => {
+            this.setState({ emailUsuario: event.target.value })
+            console.log(this.state);
+        }
+        atualizarSenhaUsuario = (event) => {
+            this.setState({ senhaUsuario: event.target.value })
+            console.log(this.state);
+        }
+        atualizarTipoUsuario = (event) => {
+            this.setState({ tipoUsuario: event.target.value })
+            console.log(this.state);
+        }
+
+        adicionarItem = (event) => {
+            event.preventDefault();
+            console.log('state', this.state);
+            Axios.post('http://192.168.4.26:5000/api/usuarios', {
+                Nome: this.state.nomeUsuario,
+                Email: this.state.emailUsuario,
+                Senha: this.state.senhaUsuario,
+                IdTipoUsuario: this.state.tipoUsuario,
+            }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+                    }
+                })
+                .then(response => { console.log(response) })
+                .then(this.exibirLista())
+                .catch(erro => {
+                    this.setState({ erro: "Não foi possível cadastrar" });
+                    console.log('error', erro);
+                });
+        }
+
+        exibirLista = () => {
+            Axios.get('http://192.168.4.26:5000/api/usuarios', {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('usuario-opflix')
+                }
+            })
+                .then(data => {
+                    this.setState({ lista: data.data });
+                })
+                .catch(erro => {
+                    console.log(erro);
+                });
+        }
+    
 
     render(){
         return(
@@ -63,14 +123,26 @@ class Usuarios extends Component{
                             })}
                         </tbody>
                     </table>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+
+
+                    <div className="container" id="conteudoPrincipal-cadastro">
+                    <h2 className="conteudoPrincipal-cadastro-titulo">
+                        Cadastrar Usuário
+                    </h2>
+                    <form action="">
+                        <input type="text" placeholder="Nome" onInput={this.atualizarNomeUsuario}></input>
+                        <input type="text" placeholder="Email" onInput={this.atualizarEmailUsuario}></input>
+                        <input type="text" placeholder="Senha" onInput={this.atualizarSenhaUsuario}></input>
+                        <select onInput={this.atualizarTipoUsuario} values={this.state.tipoUsuarioSelecionado}>
+                            <option selected>Tipo do Usuário...</option>
+                            <option value='1'>Administrador</option>
+                            <option value='2'>Comum</option>
+                        </select>
+                        
+                    
+                        <button onClick={this.adicionarItem} id='btn_lancamentos'>Cadastrar</button>
+                    </form>
+                </div>
                 </div>
                 <Rodape/>
             </div>

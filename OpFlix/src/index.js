@@ -1,4 +1,4 @@
-import {Route, Link, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
+import { Route, Link, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -16,54 +16,70 @@ import Categorias from './Pages/Categorias/Categorias';
 import NaoEncontrado from './Pages/NaoEncontrado/NaoEncontrado';
 import Usuarios from './Pages/Usuarios/Usuarios';
 
-const RotaPrivada = ({ component: Component}) => (
+const RotaPrivada = ({ component: Component }) => (
     <Route
         render={
-            props => 
-                parseJwt().Permissao === "2" ? (
-                    <Dashboardcomum {...props} />
+            props =>
+                parseJwt() == null ? (
+                    <Login {...props} />
                 ) : (
-                    <Dashboardadm {...props} />
-                )
+                        parseJwt().Permissao === "2" ? (
+                            <Dashboardcomum {...props} />
+                        ) : (
+                                <Dashboardadm {...props} />
+                            )
+                    )
         }
     />
 );
 
-const RotaPrivada2 = ({ component: Component}) => (
+const RotaPrivada2 = ({ component: Component }) => (
     <Route
         render={
-            props => 
-                parseJwt().Permissao === "2" ? (
+            props =>
+                parseJwt() == null ? (
                     <Login {...props} />
                 ) : (
-                    <Lancamentosadm {...props} />
-                )
+                        parseJwt().Permissao === "2" ? (
+                            <Login {...props} />
+                        ) : (
+                                <Lancamentosadm {...props} />
+                            )
+                    )
         }
     />
 );
 
-const RotaPrivada3 = ({ component: Component}) => (
+const RotaPrivada3 = ({ component: Component }) => (
     <Route
         render={
-            props => 
-                parseJwt().Permissao === "2" ? (
+            props =>
+                parseJwt() == null ? (
                     <Login {...props} />
                 ) : (
-                    <Usuarios {...props} />
-                )
+                        parseJwt().Permissao === "2" ? (
+                            <Login {...props} />
+                        ) : (
+                                <Usuarios {...props} />
+                            )
+                    )
         }
     />
 );
 
-const RotaPrivada4 = ({ component: Component}) => (
+const RotaPrivada4 = ({ component: Component }) => (
     <Route
         render={
-            props => 
-                parseJwt().Permissao === "2" ? (
+            props =>
+                parseJwt() == null ? (
                     <Login {...props} />
                 ) : (
-                    <Categorias {...props} />
-                )
+                        parseJwt().Permissao === "2" ? (
+                            <Login {...props} />
+                        ) : (
+                                <Categorias {...props} />
+                            )
+                    )
         }
     />
 );
@@ -87,13 +103,13 @@ const routing = (
         <div>
             <Switch>
                 <Route exact path='/' component={App} />
-                <Route path='/login' component={Login}/>
-                <Route path='/cadastro' component={Cadastro}/>
-                <RotaPrivada2 path='/lancamentosadm' component={Lancamentosadm}/>
-                <RotaPrivada3 path='/usuarios' component={Usuarios}/>
-                <RotaPrivada4 path='/categorias' component={Categorias}/>
+                <Route path='/login' component={Login} />
+                <Route path='/cadastro' component={Cadastro} />
+                <RotaPrivada2 path='/lancamentosadm' component={Lancamentosadm} />
+                <RotaPrivada3 path='/usuarios' component={Usuarios} />
+                <RotaPrivada4 path='/categorias' component={Categorias} />
                 <Route path='/lancamentoscomum' component={Lancamentoscomum}></Route>
-                <RotaPrivada path='/dashboard' component={Dashboardadm}/>
+                <RotaPrivada path='/dashboard' component={Dashboardadm} />
                 <Route component={NaoEncontrado} />
                 {/* <RotaPrivada path='/dashboardcomum' component={Dashboardcomum}/> */}
             </Switch>

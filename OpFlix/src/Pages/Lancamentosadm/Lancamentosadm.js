@@ -20,7 +20,6 @@ class Lancamentosadm extends Component {
             tipoMidia1: [],
             categoria: [],
             tipomidia: [],
-            diretor1: [],
             plataforma: [],
             plataformaSelecionada: '',
             categoriaSelecionado: '',
