@@ -24,7 +24,9 @@ class Lancamentosadm extends Component {
             plataformaSelecionada: '',
             categoriaSelecionado: '',
             tipoMidiaSelecionado: '',
-            diretorSelecionado: ''
+            diretorSelecionado: '',
+            idMidia: "",
+            erro: "",
         };
     }
 
@@ -95,6 +97,16 @@ class Lancamentosadm extends Component {
             });
     }
 
+    deletarMidia = (idMidia) => {
+        // this.setState({ idMidia: element.idMidia });
+        const USER_TOKEN = localStorage.getItem('usuario-opflix')
+        const AuthStr = 'Bearer '.concat(USER_TOKEN)
+        Axios.delete('http://192.168.4.26:5000/api/midias/' + idMidia,
+        { headers: { Authorization: AuthStr } })
+            .then(e => this.exibirLista())
+            .catch(error => console.log(error))
+    }
+
     atualizarNome = (event) => {
         this.setState({ nomeMidia: event.target.value })
         console.log(this.state);
@@ -159,6 +171,7 @@ class Lancamentosadm extends Component {
                                         <td>{element.duracao}</td>
                                         <td>{element.idTipoMidia}</td>
                                         <td>{element.idPlataforma}</td>
+                                        <td><button onClick={() => this.deletarMidia(element.idMidia)} type="submit" id="btn_delete">Deletar</button></td>
                                     </tr>
                                 )
                             })}
@@ -196,6 +209,7 @@ class Lancamentosadm extends Component {
                             })}
                         </select>
                         <button onClick={this.adicionarItem} id='btn_lancamentos'>Cadastrar</button>
+                        {this.state.erro}
                     </form>
                 </div>
                 <Rodape />
