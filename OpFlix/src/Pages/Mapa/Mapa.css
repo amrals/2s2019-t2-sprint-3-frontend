@@ -1,0 +1,10 @@
+#nav_ul_cinemas{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 1%;
+}
+#login_cinemas{
+    position: relative;
+    left: 220%;
+}

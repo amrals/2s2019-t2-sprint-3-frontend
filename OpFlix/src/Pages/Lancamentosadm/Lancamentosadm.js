@@ -30,6 +30,12 @@ class Lancamentosadm extends Component {
         };
     }
 
+    getParsedNome(nome){
+        nome = String(nome).replace('Ã¡', 'á');
+        nome = String(nome).replace('Ã', 'í');
+        return nome;
+    }
+
     componentDidMount() {
         Axios.get('http://192.168.4.26:5000/api/categorias', {
             headers: {
@@ -143,7 +149,7 @@ class Lancamentosadm extends Component {
                 <div id='divinha_lancamentosadm'>
                     <div id='header_lancamentosadm'>
                         <Link to="/dashboard"><img src={logo} alt="" className="logo" /></Link>
-                        <p id='p_adm'>Administrador - {parseJwt().Nome}</p>
+                        <p id='p_adm'>Administrador - {this.getParsedNome(parseJwt().Nome)}</p>
                     </div>
                     <p>Lançamentos</p>
                     <table class="table">

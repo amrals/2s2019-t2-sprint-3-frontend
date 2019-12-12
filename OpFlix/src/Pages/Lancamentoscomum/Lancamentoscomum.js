@@ -30,13 +30,20 @@ class Lancamentosadm extends Component{
             });
         }
 
+        getParsedNome(nome){
+            nome = String(nome).replace('Ã¡', 'á');
+            nome = String(nome).replace('Ã', 'í');
+            return nome;
+        }
+    
+
     render(){
         return(
             <div id='divona_lancamentosadm'>
                 <div id='divinha_lancamentosadm'>
                     <div id='header_lancamentosadm'>
                         <Link to="/dashboard"><img src={logo} alt="" className="logo"/></Link>
-                        <p id='p_adm'>Usuário - {parseJwt().Nome}</p>
+                        <p id='p_adm'>Usuário - {this.getParsedNome(parseJwt().Nome)}</p>
                     </div>
                     <p>Lançamentos</p>
                     <table class="table">

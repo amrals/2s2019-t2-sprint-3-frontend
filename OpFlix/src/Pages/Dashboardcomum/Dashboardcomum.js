@@ -18,6 +18,12 @@ class Dashboardcomum extends Component{
         localStorage.clear();
     }
 
+    getParsedNome(nome){
+        nome = String(nome).replace('Ã¡', 'á');
+        nome = String(nome).replace('Ã', 'í');
+        return nome;
+    }
+
     render(){
         return(
             <div id='divona'>
@@ -26,7 +32,7 @@ class Dashboardcomum extends Component{
                         <Link to="/"><img src={logo} alt="" className="logo"/></Link>
                         <p id='p_adm'>Comum</p>
                     </div>
-                        <p>Seja bem vindo(a) {parseJwt().Nome}</p>
+                        <p>Seja bem vindo(a) {this.getParsedNome(parseJwt().Nome)}</p>
                         <p>Aqui estão os lançamentos!</p>
                     <div id='guias'>
                         <Link to='/lancamentoscomum' className='guias_botoes'>Lançamentos</Link>

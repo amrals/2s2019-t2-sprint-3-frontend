@@ -24,6 +24,9 @@ class App extends Component{
                           <a className="nav-link" href="#contato">Contato</a>
                       </li>
                       <li className="nav-item">
+                          <Link className="nav-link" to='/mapa'>Cinemas</Link>
+                      </li>
+                      <li className="nav-item">
                           <Link className="nav-link" to='/login'>Login</Link>
                       </li>
                   </ul>

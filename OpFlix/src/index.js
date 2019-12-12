@@ -15,6 +15,7 @@ import Lancamentoscomum from './Pages/Lancamentoscomum/Lancamentoscomum';
 import Categorias from './Pages/Categorias/Categorias';
 import NaoEncontrado from './Pages/NaoEncontrado/NaoEncontrado';
 import Usuarios from './Pages/Usuarios/Usuarios';
+import Localizacoes from './Pages/Mapa/Mapa';
 
 const RotaPrivada = ({ component: Component }) => (
     <Route
@@ -105,6 +106,7 @@ const routing = (
                 <Route exact path='/' component={App} />
                 <Route path='/login' component={Login} />
                 <Route path='/cadastro' component={Cadastro} />
+                <Route path='/mapa' component={Localizacoes} />
                 <RotaPrivada2 path='/lancamentosadm' component={Lancamentosadm} />
                 <RotaPrivada3 path='/usuarios' component={Usuarios} />
                 <RotaPrivada4 path='/categorias' component={Categorias} />
