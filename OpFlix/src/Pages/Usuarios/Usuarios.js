@@ -98,7 +98,7 @@ class Usuarios extends Component{
                         <Link to="/dashboard"><img src={logo} alt="" className="logo"/></Link>
                         <p id='p_adm'>Administrador - {parseJwt().Nome}</p>
                     </div>
-                    <p id='user_title'>Usuários</p>
+                    <h1>Usuários</h1>
                     <table class="table">
                         <thead>
                             <tr>

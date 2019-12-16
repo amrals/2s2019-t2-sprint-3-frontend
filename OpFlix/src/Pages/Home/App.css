@@ -38,9 +38,6 @@ ul{
   display: flex;
   flex-wrap: wrap;
 }
-li{
-  /* margin: 15px 10px 5px 10px; */
-}
 .banner{
   /* background: burlywood; */
   background-image: url("../../img/banner3.png");

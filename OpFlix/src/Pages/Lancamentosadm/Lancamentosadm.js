@@ -151,7 +151,7 @@ class Lancamentosadm extends Component {
                         <Link to="/dashboard"><img src={logo} alt="" className="logo" /></Link>
                         <p id='p_adm'>Administrador - {this.getParsedNome(parseJwt().Nome)}</p>
                     </div>
-                    <p>Lançamentos</p>
+                    <h1>Lançamentos</h1>
                     <table class="table">
                         <thead>
                             <tr>

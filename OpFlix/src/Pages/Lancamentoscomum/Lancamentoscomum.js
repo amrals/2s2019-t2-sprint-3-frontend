@@ -45,8 +45,8 @@ class Lancamentosadm extends Component{
                         <Link to="/dashboard"><img src={logo} alt="" className="logo"/></Link>
                         <p id='p_adm'>Usuário - {this.getParsedNome(parseJwt().Nome)}</p>
                     </div>
-                    <p>Lançamentos</p>
-                    <table class="table">
+                    <h1>Lançamentos</h1>
+                    {/* <table class="table">
                         <thead>
                             <tr>
                             <th scope="col">#</th>
@@ -64,18 +64,33 @@ class Lancamentosadm extends Component{
                                 return(
                                     <tr>
                                     <th scope="row">{element.idMidia}</th>
-                                    <td>{element.nome}</td>
-                                    <td>{element.dataLancamento}</td>
-                                    <td>{element.idCategoria}</td>
-                                    <td>{element.sinopse}</td>
-                                    <td>{element.duracao}</td>
-                                    <td>{element.idTipoMidia}</td>
-                                    <td>{element.idPlataforma}</td>
+                                    <p>{element.nome}</p>
+                                    <p>{element.dataLancamento}</p>
+                                    <p>{element.idCategoria}</p>
+                                    <p>{element.sinopse}</p>
+                                    <p>{element.duracao}</p>
+                                    <p>{element.idTipoMidia}</p>
+                                    <p>{element.idPlataforma}</p>
                                     </tr>
                                 )
                             })}
                         </tbody>
-                    </table>
+                    </table> */}
+                    <div id='caixinhas'>
+                        {this.state.lista.map(element => {
+                            return(
+                            <div id='caixinha'>
+                                <p id='titulo_caixinha'>{element.nome}</p>
+                                <p>{element.dataLancamento}</p>
+                                <p>{element.idCategoriaNavigation.nome}</p>
+                                <p id='texto_caixinha'>{element.sinopse}</p>
+                                <p>{element.duracao}</p>
+                                <p>{element.idTipoMidiaNavigation.descricao}</p>
+                                <p>{element.idPlataformaNavigation.nome}</p>
+                            </div>
+                            )
+                        })}
+                    </div>
                 </div>
                 <Rodape/>
             </div>
