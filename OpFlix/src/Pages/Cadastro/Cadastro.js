@@ -62,9 +62,9 @@ class Cadastro extends Component{
                 <div id="box_login">
                     <h2>Cadastro</h2>
                     <form>
-                        <input type='text' placeholder='Nome' onInput={this.atualizaEstadoNome}></input>
-                        <input type='text' placeholder='Email' onInput={this.atualizaEstadoEmail}></input>
-                        <input type='password' placeholder='Senha' onInput={this.atualizaEstadoSenha}></input>
+                        <input type='text' placeholder='Nome' onInput={this.atualizaEstadoNome} required></input>
+                        <input type='text' placeholder='Email' onInput={this.atualizaEstadoEmail} required></input>
+                        <input type='password' placeholder='Senha' onInput={this.atualizaEstadoSenha} required></input>
                         <br></br>
                         <input type="submit" name="" value="Cadastrar-se" id="submit_login" onClick={this.efetuarCadastro}/>
                     </form>
