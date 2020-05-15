@@ -1,1 +1,2 @@
-# 2s2019-t2-sprint-3-frontend
+Sprint de front-end do SENAI
+Projetos relativos à front-end
